@@ -122,7 +122,7 @@ Bu endpoint veritabanındaki istenen akademisyenin tüm derslerini getirir .
 
 ### HTTP Request
 
-`GET ttps://spring-kou-service.herokuapp.com/api/lessons/{username}/academicianUsername`
+`GET https://spring-kou-service.herokuapp.com/api/lessons/{username}/academicianUsername`
 
 ### Sorgu Parametreleri
 
@@ -169,7 +169,7 @@ Bu endpoint veritabanındaki istenen akademisyenin tüm derslerini getirir .
 
 ### HTTP Request
 
-`GET ttps://spring-kou-service.herokuapp.com/api/lessons/{id}/academicianId`
+`GET https://spring-kou-service.herokuapp.com/api/lessons/{id}/academicianId`
 
 ### Sorgu Parametreleri
 
