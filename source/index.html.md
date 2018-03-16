@@ -257,3 +257,213 @@ password | false | Akademisyenin yada öğrencinin şifresi
 <aside class="success">
 Hatırlatma — Dönen JSON akamdesiyen ve öğrenciye göre farklılık gösterir.
 </aside>
+
+# Duyuru
+
+## Duyuru Gönder (Akademisyen)
+
+```shell
+curl -H "Content-Type: application/json" -X POST 
+-d 
+'{ 
+"title": "Duyuru Başlığı 1 ",
+"content": "Duyuru içeriği 1 2 3 ",
+"academician" : {
+		"id" : "2"
+	},
+	"lesson" : {
+		"id" : "6"
+	}
+}
+' "https://spring-kou-service.herokuapp.com/api/announcement"
+
+```
+
+```java
+```
+
+> Yukarıdaki gibi istek yapıldıgında verilen academisyenin verilen dersi için duyuru atılır.
+
+```text
+true
+```
+
+Bu endpoint akademisyenin istediği derse duyuru atmasını sağlar
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/announcement`
+
+
+
+<aside class="warning">
+Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body'e eklenerek post edilmelidir!
+</aside>
+
+
+## Duyuru listele (Akademisyen)
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/announcement/academician?academicianId=1"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/announcement/academician?academicianId=1"
+```
+
+> Yukarıdaki gibi istek yapıldıgında eğer kullanıcı bilgileri dogru ise şu şekilde bir JSON dönecektir :
+
+```json
+{
+    "duyurular": [
+        {
+            "id": 14,
+            "title": "Deneme hoca id 1 ",
+            "content": "Deneme ders asdsadadaadssda 1 imiş var ben",
+            "date": "2018-03-16",
+            "academician": {
+                "id": 2,
+                "name": "Yrd.Doç.Dr.Burak",
+                "surname": "Inner",
+                "username": "binner",
+                "department": "Makine_Mühendisliği",
+                "faculty": "Mühendislik"
+            },
+            "lesson": {
+                "id": 6,
+                "name": "Programlama I",
+                "clock": "10:30",
+                "day": "Salı",
+                "location": "301"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Programlama I QH8dwtxRK65g",
+            "content": "Programlama I Dersi için açıklama GejUTlbhA7xIytmROfxffvGClCvRxxHTRAxx8FkAuE",
+            "date": "2018-03-16",
+            "academician": {
+                "id": 1,
+                "name": "Yrd.Doç.Dr.Pınar",
+                "surname": "Onay Durdu",
+                "username": "ponaydurdu",
+                "department": "Endüstri_Mühendisliği",
+                "faculty": "Mühendislik"
+            },
+            "lesson": {
+                "id": 6,
+                "name": "Programlama I",
+                "clock": "10:30",
+                "day": "Salı",
+                "location": "301"
+            }
+        }
+    ]
+}
+```
+
+Bu endpoint akademisyenin attıgı duyuruları verir.
+
+### HTTP Request
+
+`GET https://spring-kou-service.herokuapp.com/api/announcement/academician?academicianId=1`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+academicianId | false | Akademisyenin id'si
+
+
+## Duyuru listele (Öğrenci)
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1"
+```
+
+> Yukarıdaki gibi istek yapıldıgında eğer kullanıcı bilgileri dogru ise şu şekilde bir JSON dönecektir :
+
+```json
+{
+    "duyurular": [
+        {
+            "id": 14,
+            "title": "Deneme hoca id 1 ",
+            "content": "Deneme ders asdsadadaadssda 1 imiş var ben",
+            "date": "2018-03-16",
+            "academician": {
+                "id": 2,
+                "name": "Yrd.Doç.Dr.Burak",
+                "surname": "Inner",
+                "username": "binner",
+                "department": "Makine_Mühendisliği",
+                "faculty": "Mühendislik"
+            },
+            "lesson": {
+                "id": 6,
+                "name": "Programlama I",
+                "clock": "10:30",
+                "day": "Salı",
+                "location": "301"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Programlama I QH8dwtxRK65g",
+            "content": "Programlama I Dersi için açıklama GejUTlbhA7xIytmROfxffvGClCvRxxHTRAxx8FkAuE",
+            "date": "2018-03-16",
+            "academician": {
+                "id": 1,
+                "name": "Yrd.Doç.Dr.Pınar",
+                "surname": "Onay Durdu",
+                "username": "ponaydurdu",
+                "department": "Endüstri_Mühendisliği",
+                "faculty": "Mühendislik"
+            },
+            "lesson": {
+                "id": 6,
+                "name": "Programlama I",
+                "clock": "10:30",
+                "day": "Salı",
+                "location": "301"
+            }
+        }
+    ]
+}
+```
+
+Bu endpoint öğrencinin aldıgı derslere attılan duyuruları listeler.
+
+### HTTP Request
+
+`GET https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+studentId | false | Akademisyenin id'si
+
+
+## Duyuru Sil (Akademisyen)
+
+```text
+true
+```
+
+
+Bu endpoint akademisyenin attıgı duyuruyu siler.
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/announcement/delete?announcementId=1`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+announcementId | false | Akademisyenin attıgı duyrunun id'si
