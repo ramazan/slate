@@ -245,6 +245,23 @@
               </ul>
           </li>
           <li>
+            <a href="#duyuru" class="toc-h1 toc-link" data-title="duyuru">Duyuru</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#duyuru-gonder-akademisyen" class="toc-h2 toc-link" data-title="duyuru-gonder-akademisyen">Duyuru Gönder (Akademisyen)</a>
+                  </li>
+                  <li>
+                    <a href="#duyuru-listele-akademisyen" class="toc-h2 toc-link" data-title="duyuru-listele-akademisyen">Duyuru listele (Akademisyen)</a>
+                  </li>
+                  <li>
+                    <a href="#duyuru-listele-ogrenci" class="toc-h2 toc-link" data-title="duyuru-listele-ogrenci">Duyuru listele (Öğrenci)</a>
+                  </li>
+                  <li>
+                    <a href="#duyuru-sil-akademisyen" class="toc-h2 toc-link" data-title="duyuru-sil-akademisyen">Duyuru Sil (Akademisyen)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
@@ -468,6 +485,192 @@ Hatırlatma — Dönen JSON Veritabanındaki tüm dersleri içerir! herhangi bir
 <aside class="success">
 Hatırlatma — Dönen JSON akamdesiyen ve öğrenciye göre farklılık gösterir.
 </aside>
+<h1 id='duyuru'>Duyuru</h1><h2 id='duyuru-gonder-akademisyen'>Duyuru Gönder (Akademisyen)</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X POST 
+-d 
+<span class="s1">'{ 
+"title": "Duyuru Başlığı 1 ",
+"content": "Duyuru içeriği 1 2 3 ",
+"academician" : {
+        "id" : "2"
+    },
+    "lesson" : {
+        "id" : "6"
+    }
+}
+'</span> <span class="s2">"https://spring-kou-service.herokuapp.com/api/announcement"</span>
+
+</code></pre><pre class="highlight java tab-java"><code></code></pre>
+<blockquote>
+<p>Yukarıdaki gibi istek yapıldıgında verilen academisyenin verilen dersi için duyuru atılır.</p>
+</blockquote>
+<pre class="highlight plaintext"><code>true
+</code></pre>
+<p>Bu endpoint akademisyenin istediği derse duyuru atmasını sağlar</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://spring-kou-service.herokuapp.com/api/announcement</code></p>
+
+<aside class="warning">
+Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body'e eklenerek post edilmelidir!
+</aside>
+<h2 id='duyuru-listele-akademisyen'>Duyuru listele (Akademisyen)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/announcement/academician?academicianId=1"</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">curl</span> <span class="s">"https://spring-kou-service.herokuapp.com/api/announcement/academician?academicianId=1"</span>
+</code></pre>
+<blockquote>
+<p>Yukarıdaki gibi istek yapıldıgında eğer kullanıcı bilgileri dogru ise şu şekilde bir JSON dönecektir :</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"duyurular"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deneme hoca id 1 "</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deneme ders asdsadadaadssda 1 imiş var ben"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-16"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"academician"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yrd.Doç.Dr.Burak"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"surname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inner"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binner"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"department"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Makine_Mühendisliği"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"faculty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mühendislik"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"lesson"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Programlama I"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"clock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:30"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salı"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Programlama I QH8dwtxRK65g"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Programlama I Dersi için açıklama GejUTlbhA7xIytmROfxffvGClCvRxxHTRAxx8FkAuE"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-16"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"academician"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yrd.Doç.Dr.Pınar"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"surname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Onay Durdu"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ponaydurdu"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"department"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endüstri_Mühendisliği"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"faculty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mühendislik"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"lesson"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Programlama I"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"clock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:30"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salı"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Bu endpoint akademisyenin attıgı duyuruları verir.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://spring-kou-service.herokuapp.com/api/announcement/academician?academicianId=1</code></p>
+<h3 id='sorgu-parametreleri-4'>Sorgu Parametreleri</h3>
+<table><thead>
+<tr>
+<th>Parametre</th>
+<th>Default</th>
+<th>Açıklama</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>academicianId</td>
+<td>false</td>
+<td>Akademisyenin id&#39;si</td>
+</tr>
+</tbody></table>
+<h2 id='duyuru-listele-ogrenci'>Duyuru listele (Öğrenci)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1"</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">curl</span> <span class="s">"https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1"</span>
+</code></pre>
+<blockquote>
+<p>Yukarıdaki gibi istek yapıldıgında eğer kullanıcı bilgileri dogru ise şu şekilde bir JSON dönecektir :</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"duyurular"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deneme hoca id 1 "</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deneme ders asdsadadaadssda 1 imiş var ben"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-16"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"academician"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yrd.Doç.Dr.Burak"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"surname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inner"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binner"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"department"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Makine_Mühendisliği"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"faculty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mühendislik"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"lesson"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Programlama I"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"clock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:30"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salı"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Programlama I QH8dwtxRK65g"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Programlama I Dersi için açıklama GejUTlbhA7xIytmROfxffvGClCvRxxHTRAxx8FkAuE"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-16"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"academician"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yrd.Doç.Dr.Pınar"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"surname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Onay Durdu"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ponaydurdu"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"department"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endüstri_Mühendisliği"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"faculty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mühendislik"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"lesson"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Programlama I"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"clock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:30"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salı"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Bu endpoint öğrencinin aldıgı derslere attılan duyuruları listeler.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1</code></p>
+<h3 id='sorgu-parametreleri-5'>Sorgu Parametreleri</h3>
+<table><thead>
+<tr>
+<th>Parametre</th>
+<th>Default</th>
+<th>Açıklama</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>studentId</td>
+<td>false</td>
+<td>Akademisyenin id&#39;si</td>
+</tr>
+</tbody></table>
+<h2 id='duyuru-sil-akademisyen'>Duyuru Sil (Akademisyen)</h2><pre class="highlight plaintext"><code>true
+</code></pre>
+<p>Bu endpoint akademisyenin attıgı duyuruyu siler.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST https://spring-kou-service.herokuapp.com/api/announcement/delete?announcementId=1</code></p>
+<h3 id='sorgu-parametreleri-6'>Sorgu Parametreleri</h3>
+<table><thead>
+<tr>
+<th>Parametre</th>
+<th>Default</th>
+<th>Açıklama</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>announcementId</td>
+<td>false</td>
+<td>Akademisyenin attıgı duyrunun id&#39;si</td>
+</tr>
+</tbody></table>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
