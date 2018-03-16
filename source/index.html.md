@@ -1,15 +1,15 @@
 ---
-title: API Reference
+title: Ajandam API Dökümantasyonu
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
-  - python
-  - javascript
+  - java
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <p>Geliştiriciler</p>
+  - <a href='https://github.com/umutsoysl'>Umut Soysal</a>
+  - <a href='https://github.com/resobyte'>İsmail Reşat Akcan </a>
+  - <a href='https://github.com/ramazan'>Ramazan Demir</a>
 
 includes:
   - errors
@@ -17,223 +17,243 @@ includes:
 search: true
 ---
 
-# Introduction
+# Giriş
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Merhaba,
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Ajandam projesi için API dökümantasyon sayfasına hoş geldiniz!
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# Dersler
 
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
+## Tüm Dersleri Getir
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl "https://spring-kou-service.herokuapp.com/api/lessons"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
+```java
+curl "https://spring-kou-service.herokuapp.com/api/lessons"
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Yukarıdaki gibi istek yapıldıgında şu şekilde bir JSON dönecektir :
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+```json
+{
+    "lessons": [
+        {
+            "id": 1,
+            "name": "Java Programlama",
+            "academician": {
+                "id": 2,
+                "name": "Yrd.Doç.Dr.Burak",
+                "surname": "Inner",
+                "username": "binner",
+                "department": "Makine_Mühendisliği",
+                "faculty": "Mühendislik"
+            },
+            "clock": "10:30",
+            "day": "Salı",
+            "location": "305"
+        },
+        {
+            "id": 2,
+            "name": "Dağıtık Sistemler",
+            "academician": {
+                "id": 2,
+                "name": "Yrd.Doç.Dr.Burak",
+                "surname": "Inner",
+                "username": "binner",
+                "department": "Makine_Mühendisliği",
+                "faculty": "Mühendislik"
+            },
+            "clock": "19:45",
+            "day": "Cuma",
+            "location": "303"
+        },
+  ]
+} 
+```
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Bu endpoint veritabanındaki tüm dersleri getirir .
 
-`Authorization: meowmeowmeow`
+### HTTP Request
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+`GET https://spring-kou-service.herokuapp.com/api/lessons`
+
+<aside class="success">
+Hatırlatma — Dönen JSON Veritabanındaki tüm dersleri içerir! herhangi bir filtreleme içermez!
 </aside>
 
-# Kittens
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Akademisyenin Tüm Derslerin Getir
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "https://spring-kou-service.herokuapp.com/api/lessons/{username}/academicianUsername"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+```java
+curl "https://spring-kou-service.herokuapp.com/api/lessons/{username}/academicianUsername"
 ```
 
-> The above command returns JSON structured like this:
+
+> Yukarıdaki gibi istek yapıldıgında şu şekilde bir JSON dönecektir :
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+    {
+        "id": 1,
+        "name": "Java Programlama",
+        "academician": {
+            "id": 3,
+            "name": "Doç.Dr.Ahmet",
+            "surname": "Sayar",
+            "username": "asayar",
+            "department": "Bilgisiyar_Mühendisliği",
+            "faculty": "Mühendislik"
+        },
+        "clock": "10:30",
+        "day": "Salı",
+        "location": "303"
+    }
 ]
 ```
 
-This endpoint retrieves all kittens.
+Bu endpoint veritabanındaki istenen akademisyenin tüm derslerini getirir .
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET ttps://spring-kou-service.herokuapp.com/api/lessons/{username}/academicianUsername`
 
-### Query Parameters
+### Sorgu Parametreleri
 
-Parameter | Default | Description
+Parametre | Default | Açıklama
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+username | false | Akademisyenin kullanıcı adı
+
+
+
+## Akademisyenin Id'si ile Derslerini Getir
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/lessons/{id}/academicianId"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/lessons/{id}/academicianId"
+```
+
+
+> Yukarıdaki gibi istek yapıldıgında şu şekilde bir JSON dönecektir :
+
+```json
+[
+    {
+        "id": 1,
+        "name": "Java Programlama",
+        "academician": {
+            "id": 3,
+            "name": "Doç.Dr.Ahmet",
+            "surname": "Sayar",
+            "username": "asayar",
+            "department": "Bilgisiyar_Mühendisliği",
+            "faculty": "Mühendislik"
+        },
+        "clock": "10:30",
+        "day": "Salı",
+        "location": "303"
+    }
+]
+```
+
+Bu endpoint veritabanındaki istenen akademisyenin tüm derslerini getirir .
+
+### HTTP Request
+
+`GET ttps://spring-kou-service.herokuapp.com/api/lessons/{id}/academicianId`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+id | false | Akademisyenin idsi
+
+
+
+# Login (Kullanıcı Girişi)
+
+## Öğrenci Kullanıcı girişi
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/login?username=140202042&password=1"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/login"
+```
+
+> Yukarıdaki gibi istek yapıldıgında eğer kullanıcı bilgileri dogru ise şu şekilde bir JSON dönecektir :
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Umut",
+            "number": 140202042,
+            "surname": "Soysal",
+            "macId": "RZ5G54K6GX4SYNF2C"
+        }
+    ],
+    "lessons": [
+        {
+            "id": 1,
+            "name": "Java Programlama",
+            "academician": {
+                "id": 2,
+                "name": "Yrd.Doç.Dr.Burak",
+                "surname": "Inner",
+                "username": "binner",
+                "department": "Makine_Mühendisliği",
+                "faculty": "Mühendislik"
+            },
+            "clock": "10:30",
+            "day": "Salı",
+            "location": "305"
+        },
+        {
+            "id": 6,
+            "name": "Programlama I",
+            "academician": {
+                "id": 1,
+                "name": "Yrd.Doç.Dr.Pınar",
+                "surname": "Onay Durdu",
+                "username": "ponaydurdu",
+                "department": "Endüstri_Mühendisliği",
+                "faculty": "Mühendislik"
+            },
+            "clock": "10:30",
+            "day": "Salı",
+            "location": "301"
+        }
+    ]
+}
+```
+
+Bu endpoint öğrenci bilgileri doğru ise öğrencinin dersleriyle birlikte bilgilerini getirir.
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/login?username=140202042&password=1`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+username | false | Akademisyenin kullanıcı adı  yada öğrencinin numarası
+password | false | Akademisyenin yada öğrencinin şifresi
+
+
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Hatırlatma — Dönen JSON akamdesiyen ve öğrenciye göre farklılık gösterir.
 </aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
