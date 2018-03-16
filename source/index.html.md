@@ -23,6 +23,186 @@ Merhaba,
 
 Ajandam projesi için API dökümantasyon sayfasına hoş geldiniz!
 
+
+# Yoklama
+
+## Yoklama kaydet (Ben burdayım) (Öğrenci)
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/rollcall?studentId=1&lessonId=1&beaconId=1"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/rollcall?studentId=1&lessonId=1&beaconId=1"
+```
+
+> Yukarıdaki gibi istek yapıldıgında eğer yoklama bilgisi başarıyla kaydedilirse aşagıdaki gibi cevap dönülür :
+
+```text
+true
+```
+
+Bu endpoint öğrencinin aldıgı derse katıldıgı bilgisini servera gönderir.
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/rollcall?studentId=1&lessonId=1&beaconId=1`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+studentId | false | Öğrencinin id'si
+lessonId | false | Dersin id'si
+beaconId | false | Beacon'ın id'si
+
+
+## Devam bilgilerini göster (Öğrenci)
+
+```shell
+curl " https://spring-kou-service.herokuapp.com/api/rollcall/RollCallInfo?studentId=1"
+```
+
+```java
+curl " https://spring-kou-service.herokuapp.com/api/rollcall/RollCallInfo?studentId=1"
+```
+
+> Yukarıdaki gibi istek yapıldıgında öğrencinin hangi derste ne kadar devam bilgisi oldugu döner.
+
+```json
+
+{
+    "devam_bilgileri": [
+        {
+            "dersAdi": "Linux Ağ Yönetimi",
+            "devamBilgisi": 0,
+            "devamsizlikBilgisi": 17
+        },
+        {
+            "dersAdi": "Dağıtık Sistemler",
+            "devamBilgisi": 1,
+            "devamsizlikBilgisi": 16
+        },
+        {
+            "dersAdi": "Java Programlama",
+            "devamBilgisi": 3,
+            "devamsizlikBilgisi": 14
+        },
+        {
+            "dersAdi": "Kontrol Sistemleri",
+            "devamBilgisi": 0,
+            "devamsizlikBilgisi": 17
+        }
+    ]
+}
+
+```
+
+Bu endpoint öğrencinin aldıgı derslere katılım bilgisini gösterir
+
+### HTTP Request
+
+`GET https://spring-kou-service.herokuapp.com/api/rollcall/RollCallInfo?studentId=1`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+studentId | false | Öğrencinin id'si
+lessonId | false | Dersin id'si
+
+## Ders özelinde Devam Bilgisi göster (Öğrenci)
+
+```shell
+curl " https://spring-kou-service.herokuapp.com/api/rollcall?studentId=1&lessonId=1"
+```
+
+```java
+curl " https://spring-kou-service.herokuapp.com/api/rollcall?studentId=1&lessonId=1"
+```
+
+> Yukarıdaki gibi istek yapıldıgında öğrencinin ilgili dersin idsi ile devam bilgisi döner
+
+```json
+
+{
+    "devamlilik_sayisi": [
+        3
+    ],
+    "yoklama": [
+        {
+            "id": 2,
+            "beaconId": "AZ1231CVDFG",
+            "student": {
+                "id": 1,
+                "name": "Umut",
+                "number": 140202042,
+                "surname": "Soysal",
+                "macId": "RZ5G54K6GX4SYNF2C"
+            },
+            "lesson": {
+                "id": 1,
+                "name": "Java Programlama",
+                "clock": "13:30",
+                "day": "Çarşamba",
+                "location": "Amfi-B"
+            }
+        },
+        {
+            "id": 8,
+            "beaconId": "AZ1231CVDFG",
+            "student": {
+                "id": 1,
+                "name": "Umut",
+                "number": 140202042,
+                "surname": "Soysal",
+                "macId": "RZ5G54K6GX4SYNF2C"
+            },
+            "lesson": {
+                "id": 1,
+                "name": "Java Programlama",
+                "clock": "13:30",
+                "day": "Çarşamba",
+                "location": "Amfi-B"
+            }
+        },
+        {
+            "id": 10,
+            "beaconId": "1",
+            "student": {
+                "id": 1,
+                "name": "Umut",
+                "number": 140202042,
+                "surname": "Soysal",
+                "macId": "RZ5G54K6GX4SYNF2C"
+            },
+            "lesson": {
+                "id": 1,
+                "name": "Java Programlama",
+                "clock": "13:30",
+                "day": "Çarşamba",
+                "location": "Amfi-B"
+            }
+        }
+    ]
+}
+
+```
+
+Bu endpoint öğrencinin aldıgı ilgili derse katılım bilgisini gösterir
+
+### HTTP Request
+
+`GET https://spring-kou-service.herokuapp.com/api/rollcall?studentId=1&lessonId=1`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+studentId | false | Öğrencinin id'si
+lessonId | false | Dersin id'si
+
+
 # Dersler
 
 ## Tüm Dersleri Getir
@@ -374,7 +554,6 @@ Parametre | Default | Açıklama
 --------- | ------- | -----------
 academicianId | false | Akademisyenin id'si
 
-
 ## Duyuru listele (Öğrenci)
 
 ```shell
@@ -447,7 +626,6 @@ Bu endpoint öğrencinin aldıgı derslere attılan duyuruları listeler.
 Parametre | Default | Açıklama
 --------- | ------- | -----------
 studentId | false | Akademisyenin id'si
-
 
 ## Duyuru Sil (Akademisyen)
 
