@@ -204,7 +204,7 @@ lessonId | false | Dersin id'si
 
 
 
-## Ders özelinde Devam Bilgisi göster (Öğrenci)
+## Dersi alan ögrencileri devam biligleri ile getirir
 
 ```shell
 curl "https://spring-kou-service.herokuapp.com/api/lesson/rollcall?lessonId=1"
@@ -270,7 +270,7 @@ Bu endpoint hangi öğrencinin ne kadar  derse katılım bilgisini oldugunu gös
 
 ### HTTP Request
 
-`GET https://spring-kou-service.herokuapp.com/api/rollcall?studentId=1&lessonId=1`
+`GET https://spring-kou-service.herokuapp.com/api/rollcall?lessonId=1`
 
 ### Sorgu Parametreleri
 
