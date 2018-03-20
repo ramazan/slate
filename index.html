@@ -234,6 +234,9 @@
                   <li>
                     <a href="#ders-ozelinde-devam-bilgisi-goster-ogrenci" class="toc-h2 toc-link" data-title="ders-ozelinde-devam-bilgisi-goster-ogrenci">Ders özelinde Devam Bilgisi göster (Öğrenci)</a>
                   </li>
+                  <li>
+                    <a href="#ders-ozelinde-devam-bilgisi-goster-ogrenci-2" class="toc-h2 toc-link" data-title="ders-ozelinde-devam-bilgisi-goster-ogrenci">Ders özelinde Devam Bilgisi göster (Öğrenci)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -247,6 +250,9 @@
                   </li>
                   <li>
                     <a href="#akademisyenin-id-39-si-ile-derslerini-getir" class="toc-h2 toc-link" data-title="akademisyenin-id-si-ile-derslerini-getir">Akademisyenin Id'si ile Derslerini Getir</a>
+                  </li>
+                  <li>
+                    <a href="#ogrenciyi-derse-kaydet" class="toc-h2 toc-link" data-title="ogrenciyi-derse-kaydet">Öğrenciyi Derse Kaydet</a>
                   </li>
               </ul>
           </li>
@@ -475,6 +481,77 @@
 <td>Dersin id&#39;si</td>
 </tr>
 </tbody></table>
+<h2 id='ders-ozelinde-devam-bilgisi-goster-ogrenci-2'>Ders özelinde Devam Bilgisi göster (Öğrenci)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/lesson/rollcall?lessonId=1"</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">curl</span> <span class="s">"https://spring-kou-service.herokuapp.com/api/lesson/rollcall?lessonId=1"</span>
+</code></pre>
+<blockquote>
+<p>Yukarıdaki gibi istek yapıldıgında öğrencinin ilgili dersin idsi ile devam bilgisi döner</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"ogrenci_devam_bilgileri"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"ogrenci"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"İsmail"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">140202042</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"surname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reşat"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"macId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5Y7VRV54MUFS9NHXQ"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"devamsizlik"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"dersAdi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Java Programlama"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"devamBilgisi"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"devamsizlikBilgisi"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"ogrenci"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ramazan"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">140202092</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"surname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Demir"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"macId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HG95QJ2J862FJKVE5"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"devamsizlik"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"dersAdi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Java Programlama"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"devamBilgisi"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"devamsizlikBilgisi"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"ogrenci"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Umut"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">140202040</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"surname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soysal"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"macId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RZ5G54K6GX4SYNF2C"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"devamsizlik"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"dersAdi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Java Programlama"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"devamBilgisi"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"devamsizlikBilgisi"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Bu endpoint hangi öğrencinin ne kadar  derse katılım bilgisini oldugunu gösterir</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://spring-kou-service.herokuapp.com/api/rollcall?studentId=1&amp;lessonId=1</code></p>
+<h3 id='sorgu-parametreleri-4'>Sorgu Parametreleri</h3>
+<table><thead>
+<tr>
+<th>Parametre</th>
+<th>Default</th>
+<th>Açıklama</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>lessonId</td>
+<td>false</td>
+<td>Dersin id&#39;si</td>
+</tr>
+</tbody></table>
 <h1 id='dersler'>Dersler</h1><h2 id='tum-dersleri-getir'>Tüm Dersleri Getir</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/lessons"</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">curl</span> <span class="s">"https://spring-kou-service.herokuapp.com/api/lessons"</span>
 </code></pre>
@@ -517,7 +594,7 @@
 </span><span class="p">}</span><span class="w"> 
 </span></code></pre>
 <p>Bu endpoint veritabanındaki tüm dersleri getirir .</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://spring-kou-service.herokuapp.com/api/lessons</code></p>
 
 <aside class="success">
@@ -548,9 +625,9 @@ Hatırlatma — Dönen JSON Veritabanındaki tüm dersleri içerir! herhangi bir
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Bu endpoint veritabanındaki istenen akademisyenin tüm derslerini getirir .</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://spring-kou-service.herokuapp.com/api/lessons/{username}/academicianUsername</code></p>
-<h3 id='sorgu-parametreleri-4'>Sorgu Parametreleri</h3>
+<h3 id='sorgu-parametreleri-5'>Sorgu Parametreleri</h3>
 <table><thead>
 <tr>
 <th>Parametre</th>
@@ -589,9 +666,9 @@ Hatırlatma — Dönen JSON Veritabanındaki tüm dersleri içerir! herhangi bir
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Bu endpoint veritabanındaki istenen akademisyenin tüm derslerini getirir .</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://spring-kou-service.herokuapp.com/api/lessons/{id}/academicianId</code></p>
-<h3 id='sorgu-parametreleri-5'>Sorgu Parametreleri</h3>
+<h3 id='sorgu-parametreleri-6'>Sorgu Parametreleri</h3>
 <table><thead>
 <tr>
 <th>Parametre</th>
@@ -605,6 +682,35 @@ Hatırlatma — Dönen JSON Veritabanındaki tüm dersleri içerir! herhangi bir
 <td>Akademisyenin idsi</td>
 </tr>
 </tbody></table>
+<h2 id='ogrenciyi-derse-kaydet'>Öğrenciyi Derse Kaydet</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/lesson/saveStudent?lessonId=1"</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">curl</span> <span class="s">"https://spring-kou-service.herokuapp.com/api/lesson/saveStudent?lessonId=1"</span>
+</code></pre>
+<blockquote>
+<p>Yukarıdaki gibi istek yapıldıgında şu şekilde bir JSON dönecektir :</p>
+</blockquote>
+<pre class="highlight plaintext"><code>true
+</code></pre>
+<p>Bu endpoint öğrenciyi derse kaydeder</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST https://spring-kou-service.herokuapp.com/api/lesson/saveStudent?lessonId=1</code></p>
+<h3 id='sorgu-parametreleri-7'>Sorgu Parametreleri</h3>
+<table><thead>
+<tr>
+<th>Parametre</th>
+<th>Default</th>
+<th>Açıklama</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>lessonId</td>
+<td>false</td>
+<td>Ders id</td>
+</tr>
+</tbody></table>
+
+<p>Post atarken json olarak öğrencinin bilgilerini post etme</p>
+
+<p>{&quot;number&quot;:&quot;140202014&quot;,&quot;name&quot;:&quot;Sevgi&quot;,&quot;surname&quot;:&quot;Demir&quot;}</p>
 <h1 id='login-kullanici-girisi'>Login (Kullanıcı Girişi)</h1><h2 id='ogrenci-kullanici-girisi'>Öğrenci Kullanıcı girişi</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/login?username=140202042&amp;password=1"</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">curl</span> <span class="s">"https://spring-kou-service.herokuapp.com/api/login"</span>
 </code></pre>
@@ -656,9 +762,9 @@ Hatırlatma — Dönen JSON Veritabanındaki tüm dersleri içerir! herhangi bir
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Bu endpoint öğrenci bilgileri doğru ise öğrencinin dersleriyle birlikte bilgilerini getirir.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST https://spring-kou-service.herokuapp.com/api/login?username=140202042&amp;password=1</code></p>
-<h3 id='sorgu-parametreleri-6'>Sorgu Parametreleri</h3>
+<h3 id='sorgu-parametreleri-8'>Sorgu Parametreleri</h3>
 <table><thead>
 <tr>
 <th>Parametre</th>
@@ -702,7 +808,7 @@ Hatırlatma — Dönen JSON akamdesiyen ve öğrenciye göre farklılık göster
 <pre class="highlight plaintext"><code>true
 </code></pre>
 <p>Bu endpoint akademisyenin istediği derse duyuru atmasını sağlar</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST https://spring-kou-service.herokuapp.com/api/announcement</code></p>
 
 <aside class="warning">
@@ -762,9 +868,9 @@ Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Bu endpoint akademisyenin attıgı duyuruları verir.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET https://spring-kou-service.herokuapp.com/api/announcement/academician?academicianId=1</code></p>
-<h3 id='sorgu-parametreleri-7'>Sorgu Parametreleri</h3>
+<h3 id='sorgu-parametreleri-9'>Sorgu Parametreleri</h3>
 <table><thead>
 <tr>
 <th>Parametre</th>
@@ -832,9 +938,9 @@ Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Bu endpoint öğrencinin aldıgı derslere attılan duyuruları listeler.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1</code></p>
-<h3 id='sorgu-parametreleri-8'>Sorgu Parametreleri</h3>
+<h3 id='sorgu-parametreleri-10'>Sorgu Parametreleri</h3>
 <table><thead>
 <tr>
 <th>Parametre</th>
@@ -851,9 +957,9 @@ Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body
 <h2 id='duyuru-sil-akademisyen'>Duyuru Sil (Akademisyen)</h2><pre class="highlight plaintext"><code>true
 </code></pre>
 <p>Bu endpoint akademisyenin attıgı duyuruyu siler.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST https://spring-kou-service.herokuapp.com/api/announcement/delete?announcementId=1</code></p>
-<h3 id='sorgu-parametreleri-9'>Sorgu Parametreleri</h3>
+<h3 id='sorgu-parametreleri-11'>Sorgu Parametreleri</h3>
 <table><thead>
 <tr>
 <th>Parametre</th>
