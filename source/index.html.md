@@ -203,6 +203,81 @@ studentId | false | Öğrencinin id'si
 lessonId | false | Dersin id'si
 
 
+
+## Ders özelinde Devam Bilgisi göster (Öğrenci)
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/lesson/rollcall?lessonId=1"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/lesson/rollcall?lessonId=1"
+```
+
+> Yukarıdaki gibi istek yapıldıgında öğrencinin ilgili dersin idsi ile devam bilgisi döner
+
+```json
+{
+    "ogrenci_devam_bilgileri": [
+        {
+            "ogrenci": {
+                "id": 3,
+                "name": "İsmail",
+                "number": 140202042,
+                "surname": "Reşat",
+                "macId": "5Y7VRV54MUFS9NHXQ"
+            },
+            "devamsizlik": {
+                "dersAdi": "Java Programlama",
+                "devamBilgisi": 2,
+                "devamsizlikBilgisi": 12
+            }
+        },
+        {
+            "ogrenci": {
+                "id": 2,
+                "name": "Ramazan",
+                "number": 140202092,
+                "surname": "Demir",
+                "macId": "HG95QJ2J862FJKVE5"
+            },
+            "devamsizlik": {
+                "dersAdi": "Java Programlama",
+                "devamBilgisi": 2,
+                "devamsizlikBilgisi": 12
+            }
+        },
+        {
+            "ogrenci": {
+                "id": 1,
+                "name": "Umut",
+                "number": 140202040,
+                "surname": "Soysal",
+                "macId": "RZ5G54K6GX4SYNF2C"
+            },
+            "devamsizlik": {
+                "dersAdi": "Java Programlama",
+                "devamBilgisi": 2,
+                "devamsizlikBilgisi": 12
+            }
+        }
+    ]
+}
+
+```
+
+Bu endpoint hangi öğrencinin ne kadar  derse katılım bilgisini oldugunu gösterir
+
+### HTTP Request
+
+`GET https://spring-kou-service.herokuapp.com/api/rollcall?studentId=1&lessonId=1`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+lessonId | false | Dersin id'si
+
 # Dersler
 
 ## Tüm Dersleri Getir
@@ -357,6 +432,40 @@ Parametre | Default | Açıklama
 --------- | ------- | -----------
 id | false | Akademisyenin idsi
 
+
+
+## Öğrenciyi Derse Kaydet 
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/lesson/saveStudent?lessonId=1"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/lesson/saveStudent?lessonId=1"
+```
+
+
+> Yukarıdaki gibi istek yapıldıgında şu şekilde bir JSON dönecektir :
+
+```text
+true
+```
+
+Bu endpoint öğrenciyi derse kaydeder
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/lesson/saveStudent?lessonId=1`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+lessonId | false | Ders id
+
+Post atarken json olarak öğrencinin bilgilerini post etme
+
+{"number":"140202014","name":"Sevgi","surname":"Demir"}
 
 
 # Login (Kullanıcı Girişi)
