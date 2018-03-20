@@ -235,7 +235,7 @@
                     <a href="#ders-ozelinde-devam-bilgisi-goster-ogrenci" class="toc-h2 toc-link" data-title="ders-ozelinde-devam-bilgisi-goster-ogrenci">Ders özelinde Devam Bilgisi göster (Öğrenci)</a>
                   </li>
                   <li>
-                    <a href="#ders-ozelinde-devam-bilgisi-goster-ogrenci-2" class="toc-h2 toc-link" data-title="ders-ozelinde-devam-bilgisi-goster-ogrenci">Ders özelinde Devam Bilgisi göster (Öğrenci)</a>
+                    <a href="#dersi-alan-ogrencileri-devam-biligleri-ile-getirir" class="toc-h2 toc-link" data-title="dersi-alan-ogrencileri-devam-biligleri-ile-getirir">Dersi alan ögrencileri devam biligleri ile getirir</a>
                   </li>
               </ul>
           </li>
@@ -481,7 +481,7 @@
 <td>Dersin id&#39;si</td>
 </tr>
 </tbody></table>
-<h2 id='ders-ozelinde-devam-bilgisi-goster-ogrenci-2'>Ders özelinde Devam Bilgisi göster (Öğrenci)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/lesson/rollcall?lessonId=1"</span>
+<h2 id='dersi-alan-ogrencileri-devam-biligleri-ile-getirir'>Dersi alan ögrencileri devam biligleri ile getirir</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/lesson/rollcall?lessonId=1"</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">curl</span> <span class="s">"https://spring-kou-service.herokuapp.com/api/lesson/rollcall?lessonId=1"</span>
 </code></pre>
 <blockquote>
@@ -537,7 +537,7 @@
 </span></code></pre>
 <p>Bu endpoint hangi öğrencinin ne kadar  derse katılım bilgisini oldugunu gösterir</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://spring-kou-service.herokuapp.com/api/rollcall?studentId=1&amp;lessonId=1</code></p>
+<p><code>GET https://spring-kou-service.herokuapp.com/api/rollcall?lessonId=1</code></p>
 <h3 id='sorgu-parametreleri-4'>Sorgu Parametreleri</h3>
 <table><thead>
 <tr>
