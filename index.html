@@ -282,6 +282,14 @@
               </ul>
           </li>
           <li>
+            <a href="#ayarlar" class="toc-h1 toc-link" data-title="ayarlar">Ayarlar</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#sifre-degistir" class="toc-h2 toc-link" data-title="sifre-degistir">Şifre Değiştir</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
@@ -971,6 +979,44 @@ Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body
 <td>announcementId</td>
 <td>false</td>
 <td>Akademisyenin attıgı duyrunun id&#39;si</td>
+</tr>
+</tbody></table>
+<h1 id='ayarlar'>Ayarlar</h1><h2 id='sifre-degistir'>Şifre Değiştir</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1"</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">curl</span> <span class="s">"https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1"</span>
+</code></pre>
+<blockquote>
+<p>Yukarıdaki gibi istek yapıldıgında eğer kullanıcı bilgileri dogru ise şu şekilde bir JSON dönecektir :</p>
+</blockquote>
+<pre class="highlight plaintext"><code>
+true
+</code></pre>
+<p>Bu endpoint şifre değiştirme içindir.</p>
+<h3 id='http-request-14'>HTTP Request</h3>
+<p><code>POST https://spring-kou-service.herokuapp.com/api/login/changePassword?username=asayar&amp;password=1&amp;newPassword=123</code></p>
+
+<p><code>POST https://spring-kou-service.herokuapp.com/api/login/changePassword?username=140202092&amp;password=1&amp;newPassword=123</code></p>
+<h3 id='sorgu-parametreleri-12'>Sorgu Parametreleri</h3>
+<table><thead>
+<tr>
+<th>Parametre</th>
+<th>Default</th>
+<th>Açıklama</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>false</td>
+<td>Akademisyen kullanıcı adı yada öğrenci numarası</td>
+</tr>
+<tr>
+<td>password</td>
+<td>false</td>
+<td>Eski şifre</td>
+</tr>
+<tr>
+<td>newPassword</td>
+<td>false</td>
+<td>Yeni şifre</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
