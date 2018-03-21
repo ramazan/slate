@@ -754,3 +754,39 @@ Bu endpoint akademisyenin attıgı duyuruyu siler.
 Parametre | Default | Açıklama
 --------- | ------- | -----------
 announcementId | false | Akademisyenin attıgı duyrunun id'si
+
+
+# Ayarlar
+
+## Şifre Değiştir
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1"
+```
+
+> Yukarıdaki gibi istek yapıldıgında eğer kullanıcı bilgileri dogru ise şu şekilde bir JSON dönecektir :
+
+```text
+
+true
+```
+
+Bu endpoint şifre değiştirme içindir.
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/login/changePassword?username=asayar&password=1&newPassword=123`
+
+`POST https://spring-kou-service.herokuapp.com/api/login/changePassword?username=140202092&password=1&newPassword=123`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+username | false | Akademisyen kullanıcı adı yada öğrenci numarası
+password | false | Eski şifre
+newPassword | false | Yeni şifre
