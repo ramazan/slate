@@ -789,6 +789,36 @@ name | false | akademisyen adı
 surname | false | akademisyen soyadı
 username | false | username
 
+## Dersi Akademisyene Kaydet
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/lesson/saveAcademicianLessons?academicianId=11&lessonId=13"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/lesson/saveAcademicianLessons?academicianId=11&lessonId=13"
+```
+
+> Yukarıdaki gibi istek yapıldıgında ders akademisyene kaydedilir. :
+
+```text
+true
+```
+
+Bu endpoint akademisyene dersi kaydeder.
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/lesson/saveAcademicianLessons?academicianId=11&lessonId=13`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+academicianId | false | akademisyen id
+lessonId | false | ders id
+
+
 # Ayarlar
 
 ## Şifre Değiştir
