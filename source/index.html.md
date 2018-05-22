@@ -756,6 +756,39 @@ Parametre | Default | Açıklama
 announcementId | false | Akademisyenin attıgı duyrunun id'si
 
 
+
+# Akademisyen 
+
+## Akademisyen Kaydet
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/saveAcademician?name=Arş.Gör.Ramazan&surname=Demir&username=rdemir"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/saveAcademician?name=Arş.Gör.Ramazan&surname=Demir&username=rdemir"
+```
+
+> Yukarıdaki gibi istek yapıldıgında akademisyen kaydedilir. :
+
+```text
+true
+```
+
+Bu endpoint akademisyen kaydeder.
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/saveAcademician?name=Arş.Gör.Ramazan&surname=Demir&username=rdemir`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+name | false | akademisyen adı
+surname | false | akademisyen soyadı
+username | false | username
+
 # Ayarlar
 
 ## Şifre Değiştir
