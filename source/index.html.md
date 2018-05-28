@@ -918,7 +918,7 @@ Bu endpoint akademisyen kaydeder.
 
 ### HTTP Request
 
-`GET https://spring-kou-service.herokuapp.com/api/academician/getAcademicians`
+`GET https://spring-kou-service.herokuapp.com/api/academician/getAcademician`
 
 
 
@@ -926,7 +926,7 @@ Bu endpoint akademisyen kaydeder.
 
 
 ```shell
-curl "https://spring-kou-service.herokuapp.com/api/academician/getAcademicians/{id}"
+curl "https://spring-kou-service.herokuapp.com/api/academician/getAcademician/{id}"
 ```
 
 
@@ -940,7 +940,7 @@ Bu endpoint akademisyen kaydeder.
 
 ### HTTP Request
 
-`GET https://spring-kou-service.herokuapp.com/api/academician/getAcademicians/{id}`
+`GET https://spring-kou-service.herokuapp.com/api/academician/getAcademician/{id}`
 
 
 ### Sorgu Parametreleri
