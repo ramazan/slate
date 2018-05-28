@@ -755,18 +755,17 @@ Parametre | Default | Açıklama
 --------- | ------- | -----------
 announcementId | false | Akademisyenin attıgı duyrunun id'si
 
-
-
 # Akademisyen 
 
-## Akademisyen Kaydet
+## Akademisyen Ekle
+
 
 ```shell
-curl "https://spring-kou-service.herokuapp.com/api/saveAcademician?name=Arş.Gör.Ramazan&surname=Demir&username=rdemir"
+curl "https://spring-kou-service.herokuapp.com/api/academician/saveAcademician"
 ```
 
 ```java
-curl "https://spring-kou-service.herokuapp.com/api/saveAcademician?name=Arş.Gör.Ramazan&surname=Demir&username=rdemir"
+curl "https://spring-kou-service.herokuapp.com/api/academician/saveAcademician"
 ```
 
 > Yukarıdaki gibi istek yapıldıgında akademisyen kaydedilir. :
@@ -779,7 +778,52 @@ Bu endpoint akademisyen kaydeder.
 
 ### HTTP Request
 
-`POST https://spring-kou-service.herokuapp.com/api/saveAcademician?name=Arş.Gör.Ramazan&surname=Demir&username=rdemir`
+`POST https://spring-kou-service.herokuapp.com/api/academician/saveAcademician`
+
+{
+"name": "Dr.Öğr.Üyesi Natay",
+"surname": "Onay Durdu",
+"username": "machine"
+}
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+name | false | akademisyen adı
+surname | false | akademisyen soyadı
+username | false | username
+
+
+
+## Akademisyen Profili Güncelle
+
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/academician/changeProfile"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/academician/changeProfile"
+```
+
+> Yukarıdaki gibi istek yapıldıgında akademisyen kaydedilir. :
+
+```text
+true
+```
+
+Bu endpoint akademisyen kaydeder.
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/academician/changeProfile`
+
+{
+"name": "Dr.Öğr.Üyesi Natay",
+"surname": "Onay Durdu",
+"username": "machine"
+}
 
 ### Sorgu Parametreleri
 
