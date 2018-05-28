@@ -468,6 +468,107 @@ Post atarken json olarak öğrencinin bilgilerini post etme
 {"number":"140202014","name":"Sevgi","surname":"Demir"}
 
 
+
+
+## Dersi  Kaydet 
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/lesson/saveLesson"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/lesson/saveLesson"
+```
+
+
+> Yukarıdaki gibi istek yapıldıgında şu şekilde bir JSON dönecektir :
+
+```text
+true
+```
+
+Bu endpoint öğrenciyi derse kaydeder
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/lesson/saveLesson`
+
+
+{ 
+"name": "Dersin Adı ",
+"academician" : {
+        "id" : "3"
+},
+"clock" : "13:00",
+"location":"305",
+"day" : "Salı"
+}
+
+
+
+##  Dersi Güncelleme
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/lesson/updateLesson"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/lesson/updateLesson"
+```
+
+
+> Yukarıdaki gibi istek yapıldıgında şu şekilde bir JSON dönecektir :
+
+```text
+true
+```
+
+Bu endpoint dersi günceller.
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/lesson/updateLesson`
+
+### Sorgu Parametreleri
+
+{ 
+"id" : "13"  ,
+"name": "Otomata",
+"academician" : {
+        "id" : "1"
+},
+"clock" : "12:00",
+"location":"303",
+"day" : "Cuma"
+}
+
+
+
+##  Dersi Silme
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/lesson/deleteLesson?lessonId=13
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/lesson/deleteLesson?lessonId=13"
+```
+
+
+> Yukarıdaki gibi istek yapıldıgında şu şekilde bir JSON dönecektir :
+
+```text
+true
+```
+
+Bu endpoint dersi siler.
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/lesson/deleteLesson?lessonId=13`
+
+
+
 # Login (Kullanıcı Girişi)
 
 ## Öğrenci Kullanıcı girişi
