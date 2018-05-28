@@ -288,6 +288,12 @@
                     <a href="#akademisyen-ekle" class="toc-h2 toc-link" data-title="akademisyen-ekle"> Akademisyen Ekle</a>
                   </li>
                   <li>
+                    <a href="#tum-akademisyenleri-getir" class="toc-h2 toc-link" data-title="tum-akademisyenleri-getir">Tüm Akademisyenleri Getir</a>
+                  </li>
+                  <li>
+                    <a href="#akademisyen-bilgierini-getir" class="toc-h2 toc-link" data-title="akademisyen-bilgierini-getir"> Akademisyen Bilgierini Getir</a>
+                  </li>
+                  <li>
                     <a href="#akademisyen-profili-guncelle" class="toc-h2 toc-link" data-title="akademisyen-profili-guncelle"> Akademisyen Profili Güncelle</a>
                   </li>
                   <li>
@@ -1036,6 +1042,41 @@ Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body
 <td>username</td>
 </tr>
 </tbody></table>
+<h2 id='tum-akademisyenleri-getir'>Tüm Akademisyenleri Getir</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/academician/getAcademicians"</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">curl</span> <span class="s">"https://spring-kou-service.herokuapp.com/api/academician/getAcademicians"</span>
+</code></pre>
+<blockquote>
+<p>Yukarıdaki gibi istek yapıldıgında akademisyen kaydedilir. :</p>
+</blockquote>
+<pre class="highlight plaintext"><code>true
+</code></pre>
+<p>Bu endpoint akademisyen kaydeder.</p>
+<h3 id='http-request-15'>HTTP Request</h3>
+<p><code>GET https://spring-kou-service.herokuapp.com/api/academician/getAcademicians</code></p>
+<h2 id='akademisyen-bilgierini-getir'> Akademisyen Bilgierini Getir</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/academician/getAcademicians/{id}"</span>
+</code></pre>
+<blockquote>
+<p>Yukarıdaki gibi istek yapıldıgında akademisyen kaydedilir. :</p>
+</blockquote>
+<pre class="highlight plaintext"><code>true
+</code></pre>
+<p>Bu endpoint akademisyen kaydeder.</p>
+<h3 id='http-request-16'>HTTP Request</h3>
+<p><code>GET https://spring-kou-service.herokuapp.com/api/academician/getAcademicians/{id}</code></p>
+<h3 id='sorgu-parametreleri-13'>Sorgu Parametreleri</h3>
+<table><thead>
+<tr>
+<th>Parametre</th>
+<th>Default</th>
+<th>Açıklama</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>false</td>
+<td>akademisyen id</td>
+</tr>
+</tbody></table>
 <h2 id='akademisyen-profili-guncelle'> Akademisyen Profili Güncelle</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/academician/changeProfile"</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">curl</span> <span class="s">"https://spring-kou-service.herokuapp.com/api/academician/changeProfile"</span>
 </code></pre>
@@ -1045,7 +1086,7 @@ Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body
 <pre class="highlight plaintext"><code>true
 </code></pre>
 <p>Bu endpoint akademisyen kaydeder.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-17'>HTTP Request</h3>
 <p><code>POST https://spring-kou-service.herokuapp.com/api/academician/changeProfile</code></p>
 
 <p>{
@@ -1053,7 +1094,7 @@ Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body
 &quot;surname&quot;: &quot;Onay Durdu&quot;,
 &quot;username&quot;: &quot;machine&quot;
 }</p>
-<h3 id='sorgu-parametreleri-13'>Sorgu Parametreleri</h3>
+<h3 id='sorgu-parametreleri-14'>Sorgu Parametreleri</h3>
 <table><thead>
 <tr>
 <th>Parametre</th>
@@ -1086,9 +1127,9 @@ Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body
 <pre class="highlight plaintext"><code>true
 </code></pre>
 <p>Bu endpoint akademisyene dersi kaydeder.</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-18'>HTTP Request</h3>
 <p><code>POST https://spring-kou-service.herokuapp.com/api/lesson/saveAcademicianLessons?academicianId=11&amp;lessonId=13</code></p>
-<h3 id='sorgu-parametreleri-14'>Sorgu Parametreleri</h3>
+<h3 id='sorgu-parametreleri-15'>Sorgu Parametreleri</h3>
 <table><thead>
 <tr>
 <th>Parametre</th>
@@ -1117,11 +1158,11 @@ Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body
 true
 </code></pre>
 <p>Bu endpoint şifre değiştirme içindir.</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-19'>HTTP Request</h3>
 <p><code>POST https://spring-kou-service.herokuapp.com/api/login/changePassword?username=asayar&amp;password=1&amp;newPassword=123</code></p>
 
 <p><code>POST https://spring-kou-service.herokuapp.com/api/login/changePassword?username=140202092&amp;password=1&amp;newPassword=123</code></p>
-<h3 id='sorgu-parametreleri-15'>Sorgu Parametreleri</h3>
+<h3 id='sorgu-parametreleri-16'>Sorgu Parametreleri</h3>
 <table><thead>
 <tr>
 <th>Parametre</th>
