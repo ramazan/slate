@@ -796,6 +796,60 @@ username | false | username
 
 
 
+## Tüm Akademisyenleri Getir
+
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/academician/getAcademicians"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/academician/getAcademicians"
+```
+
+> Yukarıdaki gibi istek yapıldıgında akademisyen kaydedilir. :
+
+```text
+true
+```
+
+Bu endpoint akademisyen kaydeder.
+
+### HTTP Request
+
+`GET https://spring-kou-service.herokuapp.com/api/academician/getAcademicians`
+
+
+
+## Akademisyen Bilgierini Getir
+
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/academician/getAcademicians/{id}"
+```
+
+
+> Yukarıdaki gibi istek yapıldıgında akademisyen kaydedilir. :
+
+```text
+true
+```
+
+Bu endpoint akademisyen kaydeder.
+
+### HTTP Request
+
+`GET https://spring-kou-service.herokuapp.com/api/academician/getAcademicians/{id}`
+
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+id | false | akademisyen id
+
+
+
 ## Akademisyen Profili Güncelle
 
 
