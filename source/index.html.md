@@ -1018,6 +1018,37 @@ academicianId | false | akademisyen id
 lessonId | false | ders id
 
 
+
+## Akademisyene UUID Kaydet
+
+```shell
+curl "https://spring-kou-service.herokuapp.com/api/academician/saveUUID?academicianId=1&UUID=00002A00-0000-1000-8000-00805F9B34FB"
+```
+
+```java
+curl "https://spring-kou-service.herokuapp.com/api/academician/saveUUID?academicianId=1&UUID=00002A00-0000-1000-8000-00805F9B34FB"
+```
+
+> Yukarıdaki gibi istek yapıldıgında beacon uuid akademisyene kaydedilir. :
+
+```text
+true
+```
+
+Bu endpoint akademisyene beacon uuid kaydeder.
+
+### HTTP Request
+
+`POST https://spring-kou-service.herokuapp.com/api/academician/saveUUID?academicianId=1&UUID=00002A00-0000-1000-8000-00805F9B34FB`
+
+### Sorgu Parametreleri
+
+Parametre | Default | Açıklama
+--------- | ------- | -----------
+academicianId | false | akademisyen id
+uuid | false | beacon uuid
+
+
 # Ayarlar
 
 ## Şifre Değiştir
