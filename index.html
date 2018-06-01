@@ -308,6 +308,9 @@
                   <li>
                     <a href="#dersi-akademisyene-kaydet" class="toc-h2 toc-link" data-title="dersi-akademisyene-kaydet">Dersi Akademisyene Kaydet</a>
                   </li>
+                  <li>
+                    <a href="#akademisyene-uuid-kaydet" class="toc-h2 toc-link" data-title="akademisyene-uuid-kaydet">Akademisyene UUID Kaydet</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1211,6 +1214,36 @@ Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body
 <td>ders id</td>
 </tr>
 </tbody></table>
+<h2 id='akademisyene-uuid-kaydet'>Akademisyene UUID Kaydet</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/academician/saveUUID?academicianId=1&amp;UUID=00002A00-0000-1000-8000-00805F9B34FB"</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">curl</span> <span class="s">"https://spring-kou-service.herokuapp.com/api/academician/saveUUID?academicianId=1&amp;UUID=00002A00-0000-1000-8000-00805F9B34FB"</span>
+</code></pre>
+<blockquote>
+<p>Yukarıdaki gibi istek yapıldıgında beacon uuid akademisyene kaydedilir. :</p>
+</blockquote>
+<pre class="highlight plaintext"><code>true
+</code></pre>
+<p>Bu endpoint akademisyene beacon uuid kaydeder.</p>
+<h3 id='http-request-22'>HTTP Request</h3>
+<p><code>POST https://spring-kou-service.herokuapp.com/api/academician/saveUUID?academicianId=1&amp;UUID=00002A00-0000-1000-8000-00805F9B34FB</code></p>
+<h3 id='sorgu-parametreleri-17'>Sorgu Parametreleri</h3>
+<table><thead>
+<tr>
+<th>Parametre</th>
+<th>Default</th>
+<th>Açıklama</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>academicianId</td>
+<td>false</td>
+<td>akademisyen id</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>false</td>
+<td>beacon uuid</td>
+</tr>
+</tbody></table>
 <h1 id='ayarlar'>Ayarlar</h1><h2 id='sifre-degistir'>Şifre Değiştir</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1"</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">curl</span> <span class="s">"https://spring-kou-service.herokuapp.com/api/announcement/student?studentId=1"</span>
 </code></pre>
@@ -1221,11 +1254,11 @@ Hatırlatma — Duyuru bilgileri  yanda belirtilen json formatında request body
 true
 </code></pre>
 <p>Bu endpoint şifre değiştirme içindir.</p>
-<h3 id='http-request-22'>HTTP Request</h3>
+<h3 id='http-request-23'>HTTP Request</h3>
 <p><code>POST https://spring-kou-service.herokuapp.com/api/login/changePassword?username=asayar&amp;password=1&amp;newPassword=123</code></p>
 
 <p><code>POST https://spring-kou-service.herokuapp.com/api/login/changePassword?username=140202092&amp;password=1&amp;newPassword=123</code></p>
-<h3 id='sorgu-parametreleri-17'>Sorgu Parametreleri</h3>
+<h3 id='sorgu-parametreleri-18'>Sorgu Parametreleri</h3>
 <table><thead>
 <tr>
 <th>Parametre</th>
